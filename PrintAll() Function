@@ -1,0 +1,20 @@
+void PrintAll(Node* node) {
+    // If node is not equal to null ptr
+    if (node != nullptr) {
+        // Call PrintAll function and pass the left node
+        PrintAll(node->left);
+
+        // Output course ID, title, and prerequisites
+        cout << node->course.courseID << " " << node->course.courseTitle << endl;
+        if (!node->course.prerequisites.empty()) {
+            cout << "Prerequisites: " << endl;
+            for (int i = 0; i < node->course.prerequisites.size(); ++i) {
+                cout << node->course.prerequisites.at(i) << endl;
+            }
+        }
+        cout << endl;
+
+        // Call the PrintAll function and pass the right node
+        PrintAll(node->right);
+    }
+}
